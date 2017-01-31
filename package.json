@@ -30,7 +30,9 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "prod": "npm run prestart && forever start app.js --prod",
+    "prestart": "npm prune && npm install && npm --prefix assets install assets"
   },
   "main": "app.js",
   "repository": {
