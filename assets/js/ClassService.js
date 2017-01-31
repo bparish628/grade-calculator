@@ -1,5 +1,5 @@
 angular.module('gradeCalculator.ClassService', [])
-  .service('ClassService', ($http, $q) => {
+  .service('ClassService', ['$http', '$q', ($http, $q) => {
     return {
       createClass(name) {
         var defer = $q.defer();
@@ -36,4 +36,4 @@ angular.module('gradeCalculator.ClassService', [])
         return defer.promise;
       }
     };
-  });
+  }]);

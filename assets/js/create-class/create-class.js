@@ -1,10 +1,10 @@
 angular.module('gradeCalculator.create-class', ['ngRoute'])
 
-.config($routeProvider => {
+.config(['$routeProvider', $routeProvider => {
   $routeProvider.when('/create', {
     template: '<create-class></create-class>'
   });
-})
+}])
 
 .component('createClass', {
   template: `

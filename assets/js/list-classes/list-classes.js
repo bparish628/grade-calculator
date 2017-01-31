@@ -1,10 +1,10 @@
 angular.module('gradeCalculator.list-classes', ['ngRoute'])
 
-.config($routeProvider => {
+.config(['$routeProvider', $routeProvider => {
   $routeProvider.when('/list', {
     template: '<list-classes></list-classes>'
   });
-})
+}])
 
 .component('listClasses', {
   template: `
@@ -28,9 +28,6 @@ angular.module('gradeCalculator.list-classes', ['ngRoute'])
             <td class="text-center">{{class.grades.length}}</td>
             <td class="text-center">{{class.currentGrade}}%</td>
             <td class="text-center">
-              <button class="btn btn-default btn-sm">
-                <i class="glyphicon glyphicon-eye-open"></i>
-              </button>
               <a href="#/edit/{{class.id}}" class="btn btn-info btn-sm">
                 <i class="glyphicon glyphicon-pencil"></i>
               </a>
@@ -38,6 +35,9 @@ angular.module('gradeCalculator.list-classes', ['ngRoute'])
                 <i class="glyphicon glyphicon-remove"></i>
               </button>
             </td>
+          </tr>
+          <tr ng-if="!$ctrl.classes.length" class="text-center">
+            <td colspan="100%">No classes have been created yet.</td>
           </tr>
         </tbody>
       </table>

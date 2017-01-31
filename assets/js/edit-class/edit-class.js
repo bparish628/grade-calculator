@@ -1,10 +1,10 @@
 angular.module('gradeCalculator.edit-class', ['ngRoute'])
 
-.config($routeProvider => {
+.config(['$routeProvider', $routeProvider => {
   $routeProvider.when('/edit/:id', {
     template: '<edit-class></edit-class>'
   });
-})
+}])
 
 .component('editClass', {
   template: `

@@ -6,8 +6,8 @@ angular.module('gradeCalculator', [
   'gradeCalculator.list-classes',
   'gradeCalculator.ClassService'
 ])
-.config(($locationProvider, $routeProvider) => {
+.config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
   $locationProvider.hashPrefix('');
 
   $routeProvider.otherwise({redirectTo: '/list'});
-});
+}]);

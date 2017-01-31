@@ -17,7 +17,7 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  '/node_modules/bootstrap/dist/css/bootstrap.css',
+  'node_modules/bootstrap/dist/css/bootstrap.css',
   'styles/**/*.css'
 ];
 
@@ -30,8 +30,8 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  '/node_modules/jquery/dist/jquery.js',
-  '/node_modules/angular/angular.js',
+  'js/dependencies/angular.js',
+  'js/dependencies/angular.route.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
