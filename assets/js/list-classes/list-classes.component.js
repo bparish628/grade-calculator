@@ -17,12 +17,16 @@ angular.module('gradeCalculator.list-classes', ['ngRoute'])
       
       <table class="table table-bordered table-hover">
         <tr>
-          <th width="80%">Name</th>
-          <th width="20%" class="text-center">Options</th>
+          <th width="70%">Name</th>
+          <th class="text-center"># of grades</th>
+          <th class="text-center">Current grade</th>
+          <th style="min-width: 123px;" width="10%" class="text-center">Options</th>
         </tr>
         <tbody>
           <tr ng-repeat="class in $ctrl.classes | orderBy:'name'">
             <td>{{class.name}}</td>
+            <td class="text-center">{{class.grades.length}}</td>
+            <td class="text-center">{{class.currentGrade}}%</td>
             <td class="text-center">
               <button class="btn btn-default btn-sm">
                 <i class="glyphicon glyphicon-eye-open"></i>

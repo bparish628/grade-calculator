@@ -21,6 +21,10 @@ module.exports = {
     weight: {
       type: 'integer',
       required: true
+    },
+
+    associatedClass: {
+      model: 'class'
     }
   }
 };

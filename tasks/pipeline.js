@@ -57,12 +57,6 @@ module.exports.cssFilesToInject = cssFilesToInject.map(path => `.tmp/public/${pa
 module.exports.jsFilesToInject = jsFilesToInject.map(path => `.tmp/public/${path}`);
 module.exports.templateFilesToInject = templateFilesToInject.map(path => `assets/${path}`);
 
-
-
-
-
-
-
 // Default path for public folder (see documentation for more information)
 var tmpPath = '.tmp/public/';
 

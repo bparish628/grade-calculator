@@ -8,42 +8,38 @@ angular.module('gradeCalculator.edit-class', ['ngRoute'])
 
 .component('editClass', {
   template: `
-    <form class="well">
+    <form>
       <div class="alert alert-danger" role="alert" ng-show="$ctrl.message.status">
         {{$ctrl.message.text}}
       </div>
-      <h2>Editting <span class="text-primary">{{::$ctrl.class.name}}<span></h2>
+      <h3>Edit <span class="text-primary">{{::$ctrl.class.name}}</span></h3>
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" placeholder="Physics 1" ng-model="$ctrl.class.name">
       </div>
-      <h4 ng-if="$ctrl.class.grades.length">Grades: </h4>
-      <div class="row" ng-repeat="grade in $ctrl.class.grades">
-        <div class="form-group col-lg-9 col-sm-7">
-          <label for="name" class="control-label">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Assignment 1" ng-model="grade.name">
-        </div>
-        <div class="form-group col-lg-1 col-sm-2">
-          <label for="grade" class="control-label">Grade</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="grade" placeholder="40" ng-model="grade.grade" style="min-width: 30px;">
-            <span class="input-group-addon">%</span>
-          </div>
-        </div>
-        <div class="form-group col-lg-1 col-sm-2">
-          <label for="weight" class="control-label">Weight</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="weight" placeholder="50" ng-model="grade.weight" style="min-width: 30px;">
-            <span class="input-group-addon">%</span>
-          </div>
-        </div>
-        <div class="col-sm-1">
-          <button class="btn btn-danger btn-sm" ng-click="$ctrl.removeGrade($index)" style="margin-top: 37px"><i class="glyphicon glyphicon-minus"></i></button>
-        </div>
-      </div>
-      <div class="form-group text-right">
-        <button class="btn btn-info" ng-click="$ctrl.addGrade()"><i class="glyphicon glyphicon-plus"></i> Add Grade</button>
-      </div>
+      <h4 style="margin-top: 25px;">
+        Grades: 
+        <button class="btn btn-info btn-sm pull-right" ng-click="$ctrl.addGrade()"><i class="glyphicon glyphicon-plus"></i> Add Grade</button>
+      </h4>
+      <table class="table table-bordered table-hover">
+        <tr>
+          <th>Name</th>
+          <th width="20px">Grade(%)</th>
+          <th width="20px">Weight(%)</th>
+          <th width="30px">Delete</th>
+        </tr>
+        <tbody>
+          <tr ng-repeat="grade in $ctrl.class.grades">
+            <td><input type="text" class="form-control" placeholder="Assignment 1" ng-model="grade.name"></td>
+            <td><input type="text" class="form-control" placeholder="40" ng-model="grade.grade"></td>
+            <td><input type="text" class="form-control" placeholder="50" ng-model="grade.weight"></td>
+            <td class="text-center"><button class="btn btn-danger btn-sm" ng-click="$ctrl.removeGrade($index)"><i class="glyphicon glyphicon-minus"></i></button></td>
+          </tr>
+          <tr ng-if="!$ctrl.class.grades.length" class="text-center">
+            <td colspan="100%">There are no grades for this class.</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="text-right">
         <button class="btn btn-primary" ng-click="$ctrl.update()">Submit</button>
         <a href="#/list" class="btn btn-default">Back</a>
