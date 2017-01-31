@@ -1,6 +1,8 @@
 angular.module('gradeCalculator', [
   'ngRoute',
+  'gradeCalculator.navigation',
   'gradeCalculator.create-class',
+  'gradeCalculator.edit-class',
   'gradeCalculator.list-classes',
   'gradeCalculator.ClassService'
 ])

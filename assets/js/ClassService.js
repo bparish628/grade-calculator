@@ -3,7 +3,7 @@ angular.module('gradeCalculator.ClassService', [])
     return {
       createClass(name) {
         var defer = $q.defer();
-        $http.post('/class', name).then(response =>  defer.resolve(response), 
+        $http.post('/class', name).then(response =>  defer.resolve(response.data), 
           error => (defer.reject(error)));
         return defer.promise;
       },
@@ -14,17 +14,24 @@ angular.module('gradeCalculator.ClassService', [])
           error => (defer.reject(error)));
         return defer.promise;
       },
-      
-      updateClasses(info) {
+
+      getClass(id) {
         var defer = $q.defer();
-        $http.put('/class', info).then(response =>  defer.resolve(response), 
+        $http.get(`/class/${id}`).then(response =>  defer.resolve(response.data), 
+          error => (defer.reject(error)));
+        return defer.promise;
+      },
+      
+      updateClass(info) {
+        var defer = $q.defer();
+        $http.put(`/class/${info.id}`, info).then(response =>  defer.resolve(response.data), 
           error => (defer.reject(error)));
         return defer.promise;
       },
 
-      deleteClasses(id) {
+      deleteClass(id) {
         var defer = $q.defer();
-        $http.delete('/class/destroy', id).then(response =>  defer.resolve(response), 
+        $http.delete(`/class/destroy/${id}`).then(response =>  defer.resolve(response.data), 
           error => (defer.reject(error)));
         return defer.promise;
       }
