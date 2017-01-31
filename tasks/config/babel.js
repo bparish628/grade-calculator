@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   grunt.config.set('babel', {
     dev: {
-      presets: ['es2015'],
+      extend: '/.babelrc',
       files: [{
         expand: true,
         cwd: 'assets/js/',
@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       }]
     },
     prod: {
-      presets: ['es2015'],
+      extend: '/.babelrc',
       files: [{
         expand: true,
         cwd: 'assets/js/',
