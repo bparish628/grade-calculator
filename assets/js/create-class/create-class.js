@@ -30,8 +30,7 @@ angular.module('gradeCalculator.create-class', ['ngRoute'])
         .then(newClass => {
           this.message = { status: 'success', text: `${newClass.name} was successfully added.` };
           this.name = '';
-        },
-        () => (this.message = { status: 'error', text: 'An error occurred.' }));
+        }, () => (this.message = { status: 'error', text: 'An error occurred.' }));
     }
   }]
 });

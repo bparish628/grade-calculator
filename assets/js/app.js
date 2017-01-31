@@ -8,6 +8,5 @@ angular.module('gradeCalculator', [
 ])
 .config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
   $locationProvider.hashPrefix('');
-
   $routeProvider.otherwise({redirectTo: '/list'});
 }]);
